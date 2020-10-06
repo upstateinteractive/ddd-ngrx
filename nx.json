@@ -29,6 +29,9 @@
     "ddd-ngrx-e2e": {
       "tags": [],
       "implicitDependencies": ["ddd-ngrx"]
+    },
+    "activity-domain": {
+      "tags": ["domain:activity", "type:domain-logic"]
     }
   }
 }
