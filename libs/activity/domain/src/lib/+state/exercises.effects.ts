@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
 import { fetch } from '@nrwl/angular';
+import { ExerciseDataService } from '../infrastructure/exercise.data.service';
+import { map } from 'rxjs/operators';
 
-import * as fromExercises from './exercises.reducer';
 import * as ExercisesActions from './exercises.actions';
 
 @Injectable()
@@ -12,8 +13,13 @@ export class ExercisesEffects {
       ofType(ExercisesActions.loadExercises),
       fetch({
         run: (action) => {
-          // Your custom service 'load' logic goes here. For now just return a success action...
-          return ExercisesActions.loadExercisesSuccess({ exercises: [] });
+          return this.backend
+            .load()
+            .pipe(
+              map((exercises) =>
+                ExercisesActions.loadExercisesSuccess({ exercises })
+              )
+            );
         },
 
         onError: (action, error) => {
@@ -24,5 +30,8 @@ export class ExercisesEffects {
     )
   );
 
-  constructor(private actions$: Actions) {}
+  constructor(
+    private actions$: Actions,
+    private backend: ExerciseDataService
+  ) {}
 }
