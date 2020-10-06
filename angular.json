@@ -164,6 +164,51 @@
           "style": "scss"
         }
       }
+    },
+    "activity-feature-record-daily-exercise": {
+      "projectType": "library",
+      "root": "libs/activity/feature-record-daily-exercise",
+      "sourceRoot": "libs/activity/feature-record-daily-exercise/src",
+      "prefix": "activity",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/activity/feature-record-daily-exercise/tsconfig.lib.json",
+            "project": "libs/activity/feature-record-daily-exercise/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/activity/feature-record-daily-exercise/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/activity/feature-record-daily-exercise/tsconfig.lib.json",
+              "libs/activity/feature-record-daily-exercise/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/activity/feature-record-daily-exercise/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/activity/feature-record-daily-exercise/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

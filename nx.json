@@ -32,6 +32,9 @@
     },
     "activity-domain": {
       "tags": ["domain:activity", "type:domain-logic"]
+    },
+    "activity-feature-record-daily-exercise": {
+      "tags": ["domain:activity", "type:feature"]
     }
   }
 }

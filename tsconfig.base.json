@@ -16,7 +16,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ddd-ngrx/activity/domain": ["libs/activity/domain/src/index.ts"]
+      "@ddd-ngrx/activity/domain": ["libs/activity/domain/src/index.ts"],
+      "@ddd-ngrx/activity/feature-record-daily-exercise": [
+        "libs/activity/feature-record-daily-exercise/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
